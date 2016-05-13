@@ -114,7 +114,7 @@ export class AppComponent {
     onSelect(company: Company) {this.selectedCompany = company; }
 }
 
-var COMPANIES: Company = [
+var COMPANIES: Company[] = [
     {"id": 1, "name": "SallCorp"},
     {"id": 2, "name": "BlahCorp"},
     {"id": 3, "name": "EvilCorp"},
