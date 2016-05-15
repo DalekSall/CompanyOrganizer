@@ -1,21 +1,32 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { RouteParams } from '@angular/router-deprecated';
+
+import { CompanyService } from './company.service';
 import { Company } from './company';
 
 @Component({
     selector: 'my-company-detail',
-    template: `
-      <div *ngIf="company">
-          <h2>{{company.name}} details</h2>
-          <div><label>id: </label>{{company.id}}</div>
-          <div>
-              <label>name: </label>
-              <input [(ngModel)]="company.name" placeholder="name">
-          </div>
-      </div>
-    `
+    templateUrl: 'app/templates/company-detail.component.html',
+    styleUrls: ['css/dashboard.component.css']
 })
 
-export class CompanyDetailComponent {
-    @Input()
+export class CompanyDetailComponent implements OnInit{
+
     company: Company;
+
+    constructor(
+        private companyService: CompanyService,
+        private routeParams: RouteParams
+    ) { }
+
+    ngOnInit() {
+        let id = +this.routeParams.get('id');
+        this.companyService.getCompany(id)
+            .then(company => this.company = company);
+    }
+
+    goBack() {
+        window.history.back();
+    }
+
 }
