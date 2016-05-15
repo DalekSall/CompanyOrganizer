@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-
-export class Company {
-    id      : number;
-    name    : string;
-    //cvr     : number;
-    //name    : string;
-    //adress  : string;
-    //city    : string;
-    //country : string;
-    //phone   : number
-}
+import { Company } from './company';
+import { CompanyDetailComponent } from './company-detail.component';
+import { CompanyService } from './company.service';
+import { OnInit } from '@angular/core';
 
 @Component({
     selector: 'my-app',
     template:`
         <h1>{{title}}</h1>
 
-        <h2>my companies</h2>
+        <h2>My Companies</h2>
         <ul class="companies">
             <li *ngFor="let company of companies"
                 [class.selected]="company === selectedCompany"
@@ -24,36 +17,7 @@ export class Company {
                 <span class="badge">{{company.id}}</span> {{company.name}}
             </li>
         </ul>
-
-        <div *ngIf="selectedCompany">
-            <h2>{{selectedCompany.name}} details</h2>
-            <div><label>id: </label>{{selectedCompany.id}}</div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="selectedCompany.name" placeholder="name">
-            </div>
-        </div>
-
-      <!--<div>
-        <label>cvr: </label>
-        <input value="{{company.cvr}}" placeholder="cvr">
-      </div>
-      <div>
-        <label>adress: </label>
-        <input value="{{company.address}}" placeholder="address">
-      </div>
-      <div>
-        <label>city: </label>
-        <input value="{{company.city}}" placeholder="city">
-      </div>
-      <div>
-        <label>country: </label>
-        <input value="{{company.country}}" placeholder="country">
-      </div>
-      <div>
-        <label>phone: </label>
-        <input value="{{company.phone}}" placeholder="phone">
-      </div>-->
+        <my-company-detail [company]="selectedCompany"></my-company-detail>
     `,
     styles:[`
       .selected {
@@ -103,22 +67,26 @@ export class Company {
         margin-right: .8em;
         border-radius: 4px 0 0 4px;
       }
-    `]
+    `],
+    directives: [CompanyDetailComponent],
+    providers: [CompanyService]
+
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = "Companies";
-    public companies = COMPANIES;
+    companies: Company[];
     selectedCompany: Company;
+
+    constructor(private companyService: CompanyService) { }
+
+    ngOnInit() {
+        this.getCompanies()
+    }
+
+    getCompanies() {
+        this.companyService.getCompanies().then(companies => this.companies = companies);
+    }
 
     onSelect(company: Company) {this.selectedCompany = company; }
 }
-
-var COMPANIES: Company[] = [
-    {"id": 1, "name": "SallCorp"},
-    {"id": 2, "name": "BlahCorp"},
-    {"id": 3, "name": "EvilCorp"},
-    {"id": 4, "name": "StupidCorp"},
-    {"id": 5, "name": "BobCorp"}
-];
-
