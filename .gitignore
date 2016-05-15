@@ -2,5 +2,3 @@ public/node_modules/*
 public/typings/*
 public/src/*
 public/npm-debug.log
-public/app/*.js
-public/app/*.js.map
