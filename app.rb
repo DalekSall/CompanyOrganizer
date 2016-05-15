@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 
-get '/company/*' do
+get '/api/*' do
   testCompany = {
     :cvr => 123456,
     :name => "SallCorp",
@@ -14,6 +14,6 @@ get '/company/*' do
 
 end
 
-get '/' do
+get '/*' do
   File.read(File.join('public', 'index.html'))
 end
