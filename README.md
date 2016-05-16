@@ -25,14 +25,20 @@ ruby app.rb
 4. open localhost:4567, and you are up and running. 
 
 ##API calls:
-* GET: /api/companies  
+* Fetch all companies  
+```
+   GET: /api/companies  
    curl -i http://localhost:4567/companies  
-   Fetch all companies  
-* GET: /api/company/:id  
+```
+* Fetch specific company by id  
+```
+   GET: /api/company/:id  
    curl -i http://localhost:4567/company/1  
-   Fetch specific company by id  
-* POST: /api/company/  
-   creates new company from posted associative array/hash  
+```
+* creates new company from posted associative array/hash  
+```
+   POST: /api/company/   
+```
 
 ##TO DO: 
 * Create SQLite database
