@@ -17,13 +17,13 @@ See compiled version: https://companyorganizer.herokuapp.com/
 
 ##API calls:
 * GET: /api/companies  
-... curl -i http://localhost:4567/companies  
-... Fetch all companies  
+   curl -i http://localhost:4567/companies  
+   Fetch all companies  
 * GET: /api/company/:id  
-... curl -i http://localhost:4567/company/1  
-... Fetch specific company by id  
+   curl -i http://localhost:4567/company/1  
+   Fetch specific company by id  
 * POST: /api/company/  
-... creates new company from posted associative array/hash  
+   creates new company from posted associative array/hash  
 
 ##TO DO: 
 * Create SQLite database
