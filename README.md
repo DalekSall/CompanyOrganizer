@@ -10,9 +10,18 @@ See compiled version: https://companyorganizer.herokuapp.com/
 * Typescript v1.8.10
 
 ##local instalation
-1. in "/app/" run "npm install"
-2. in "/app/" run "npm start" or "npm tsc"
-3. in "/" run "ruby app"
+1. in "/app/" run  
+```
+npm install
+```
+2. in "/app/" run  
+```
+npm start" or "npm tsc
+```
+3. in "/" run   
+```
+ruby app.rb
+```
 4. open localhost:4567, and you are up and running. 
 
 ##API calls:
