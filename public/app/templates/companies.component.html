@@ -4,18 +4,27 @@ New Company:
     Add Company
 </button>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-
 <h2>My Companies</h2>
 <ul class="companies">
     <li *ngFor="let company of companies"
         [class.selected]="company === selectedCompany"
         (click)="onSelect(company)">
-        <span class="badge">{{company.id}}</span> {{company.name}}
+        <div class="title">
+            <span class="badge">{{company.id}}</span> {{company.name}}
+        </div>
+        <div *ngIf="company == selectedCompany">
+            <!--This should be pulled from the company Detail component-->
+            <ul class="companyDetails">
+                <li><span>id: </span>      {{company.id}}</li>
+                <li><span>Name: </span>    {{company.name}}</li>
+                <li><span>CVR: </span>     {{company.cvr}}</li>
+                <li><span>Address: </span> {{company.address}}</li>
+                <li><span>city: </span>    {{company.city}}</li>
+                <li><span>country: </span> {{company.country}}</li>
+                <li><span>phone: </span>   {{company.phone}}</li>
+            </ul>
+            <!--<button (click)="gotoDetail()">View Details</button>-->
+        </div>
     </li>
 </ul>
-<div *ngIf="selectedCompany">
-    <h2>
-        {{selectedCompany.name | uppercase}} is current Company
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
-</div>
+

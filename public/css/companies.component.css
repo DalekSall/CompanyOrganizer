@@ -1,4 +1,4 @@
-.selected {
+.title.selected {
     background-color: #CFD8DC !important;
     color: white;
 }
@@ -8,7 +8,7 @@
     padding: 0;
     width: 15em;
 }
-.companies li {
+.companies .title {
     cursor: pointer;
     position: relative;
     left: 0;
@@ -18,11 +18,14 @@
     height: 1.6em;
     border-radius: 4px;
 }
-.companies li.selected:hover {
+.companies .title.selected {
+    height: auto !important;
+}
+.companies .title.selected:hover {
     background-color: #BBD8DC !important;
     color: white;
 }
-.companies li:hover {
+.companies .title:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
@@ -44,4 +47,8 @@
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
+}
+
+.companyDetails {
+    list-style-type: none;
 }
