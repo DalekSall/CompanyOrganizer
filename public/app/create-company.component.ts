@@ -31,8 +31,8 @@ export class CreateCompanyComponent {
         }
         this.companyService.addCompany(name, cvr, address, city, country, phone)
             .subscribe(
-              response => this.response = response,
-              error => this.errorMessage = <any>error
+                response => this.response = response,
+                error => this.errorMessage = <any>error
             );
     }
 

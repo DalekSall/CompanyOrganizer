@@ -66,13 +66,13 @@ post '/api/company/' do
   latesId = latestCompany[:id] + 1
 
   testCompanies.push({
-    :id => latesId,
-    :name => data['name'],
-    :cvr => data['cvr'],
-    :address => data['address'],
-    :city => data['city'],
-    :country => data['country'],
-    :phone => data['phone'],
+      :id => latesId,
+      :name => data['name'],
+      :cvr => data['cvr'],
+      :address => data['address'],
+      :city => data['city'],
+      :country => data['country'],
+      :phone => data['phone'],
   });
 
   #Just return success
