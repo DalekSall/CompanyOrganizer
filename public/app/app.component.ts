@@ -30,6 +30,7 @@ import { DashboardComponent } from './dashboard.component';
     ]
 })
 
+//routes for our app
 @RouteConfig ([
     {
         path: '/dashboard',
