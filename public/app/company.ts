@@ -1,3 +1,4 @@
+//Our outline for a company
 export class Company {
     id      : number;
     cvr     : number;

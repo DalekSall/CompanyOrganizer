@@ -1,10 +1,5 @@
-New Company:
-<input #newCompanyName>
-<button (click)="addCompany(newCompanyName.value); newCompanyName.value=''">
-    Add Company
-</button>
+<h2>Companies</h2>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-<h2>My Companies</h2>
 <ul class="companies">
     <li *ngFor="let company of companies"
         [class.selected]="company === selectedCompany"
@@ -13,7 +8,7 @@ New Company:
             <span class="badge">{{company.id}}</span> {{company.name}}
         </div>
         <div *ngIf="company == selectedCompany">
-            <!--This should be pulled from the company Detail component-->
+            <!--This should somehow be pulled from the company Detail component-->
             <ul class="companyDetails">
                 <li><span>id: </span>      {{company.id}}</li>
                 <li><span>Name: </span>    {{company.name}}</li>
@@ -23,7 +18,6 @@ New Company:
                 <li><span>country: </span> {{company.country}}</li>
                 <li><span>phone: </span>   {{company.phone}}</li>
             </ul>
-            <!--<button (click)="gotoDetail()">View Details</button>-->
         </div>
     </li>
 </ul>
