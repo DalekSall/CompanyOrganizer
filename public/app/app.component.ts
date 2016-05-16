@@ -10,13 +10,14 @@ import { CreateCompanyComponent } from './create-company.component';
 import { DashboardComponent } from './dashboard.component';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     //Define the outline for our app, its not big, so we just use inline here
     template: `
       <h1>{{title}}</h1>
       <nav>
         <a [routerLink]="['Dashboard']">Dashboard</a>
         <a [routerLink]="['Companies']">Companies</a>
+        <a [routerLink]="['CreateCompany']">Create Company</a>
       </nav>
       <router-outlet></router-outlet>
     `,

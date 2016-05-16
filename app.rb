@@ -56,11 +56,15 @@ get '/api/company/:id' do
   company.to_json()
 end
 
+##Pushes new company to testCompanies, should run on DB instead
 post '/api/company/' do
   request.body.rewind
   data = JSON.parse request.body.read
+
+  #Get a new id
   latestCompany = testCompanies.last
   latesId = latestCompany[:id] + 1
+
   testCompanies.push({
     :id => latesId,
     :name => data['name'],
@@ -70,6 +74,8 @@ post '/api/company/' do
     :country => data['country'],
     :phone => data['phone'],
   });
+
+  #Just return success
   "success".to_json()
 end
 

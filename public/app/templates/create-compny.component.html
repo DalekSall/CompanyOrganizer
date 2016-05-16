@@ -1,6 +1,4 @@
 <h2>Create </h2>
-<button (click)="goBack()">Back</button>
-
 <div *ngIf(response)>
     Success!
 </div>
@@ -17,6 +15,8 @@
 <input #newCompanyCountry><br />
 <label>Phone:</label><br />
 <input #newCompanyPhone><br />
+<br />
+<button (click)="goBack()">Back</button>
 <button (click)="createCompany(
                  newCompanyName.value,
                  newCompanyCvr.value,

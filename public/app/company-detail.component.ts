@@ -5,7 +5,7 @@ import { CompanyService } from './company.service';
 import { Company } from './company';
 
 @Component({
-    selector: 'my-company-detail',
+    selector: 'company-detail',
     templateUrl: 'app/templates/company-detail.component.html',
     styleUrls: ['css/dashboard.component.css']
 })
