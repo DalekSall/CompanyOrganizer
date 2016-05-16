@@ -12,26 +12,32 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var company_service_1 = require('./company.service');
 var DashboardComponent = (function () {
+    //Avoid complex stuff in the constructor.
+    //Just inject the components we need. 
     function DashboardComponent(router, companyService) {
         this.router = router;
         this.companyService = companyService;
+        //The data we work with in this component
         this.companies = [];
     }
+    //fetch companies when our app is ready
     DashboardComponent.prototype.ngOnInit = function () {
         this.getCompanies();
     };
+    //fetch companies from our company service
     DashboardComponent.prototype.getCompanies = function () {
         var _this = this;
         this.companyService.getCompanies()
-            .subscribe(function (companies) { return _this.companies = companies; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (companies) { return _this.companies = companies.slice(Math.max(companies.length - 4, 1)); }, function (error) { return _this.errorMessage = error; });
     };
+    //When we clik on a company, we go to a details page
     DashboardComponent.prototype.gotoDetail = function (company) {
         var link = ['CompanyDetail', { id: company.id }];
         this.router.navigate(link);
     };
     DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'my-dashboard',
+            selector: 'dashboard',
             templateUrl: 'app/templates/dashboard.component.html',
             styleUrls: ['css/dashboard.component.css']
         }), 

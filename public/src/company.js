@@ -1,4 +1,5 @@
 "use strict";
+//Our outline for a company
 var Company = (function () {
     function Company() {
     }
