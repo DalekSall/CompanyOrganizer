@@ -38,6 +38,7 @@ ruby app.rb
 * creates new company from posted associative array/hash  
 ```
    POST: /api/company/   
+   curl --data "name=name&cvr=cvr&address=address&city=city&country=country&phone=phone" http://localhost:4567/api/company/
 ```
 
 ##TO DO: 
