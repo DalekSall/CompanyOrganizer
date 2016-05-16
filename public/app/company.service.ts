@@ -1,26 +1,43 @@
+//import required system components 
 import { Injectable } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import { Headers, RequestOptions} from '@angular/http';
-
-import { Company } from './company';
 import { Observable } from 'rxjs/Observable';
-//Mock companies for testing purposes
-//import { COMPANIES } from './mock-companies';
 
+//import our own defined components
+import { Company } from './company';
+
+//This class is injectable
 @Injectable()
 export class CompanyService {
 
+    //Avoid complex stuff in the constructor.
+    //Just inject the components we need. 
     constructor (private http: Http) {}
 
+    //Our api routes
     private companiesUrl = 'api/companies'
     private companyUrl   = 'api/company/'
 
+    //we create an observable our other components
+    //can subscribe to.
+
+    //Fetch alle companies from our webservice
     getCompanies(): Observable<Company[]> {
         return this.http.get(this.companiesUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
+    //fetch a single company from our webservice
+    getCompany(id: number) {
+        return this.http.get(this.companyUrl+id)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+
+    //This doesn't work
     addCompany (name: string): Observable<Company> {
         let body = JSON.stringify({ name });
         let headers = new Headers({ 'Content-Type' : 'application/json' });
@@ -31,6 +48,7 @@ export class CompanyService {
             .catch(this.handleError);
     }
 
+    //helper method for checking response and extracting the data
     private extractData(res: Response) {
         if(res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
@@ -39,15 +57,11 @@ export class CompanyService {
         return body || { };
     }
 
+    //helper method for handling errors
     private handleError (error: any) {
         let errMsg = error.message || 'Server error';
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
 
-    getCompany(id: number) {
-        return this.http.get(this.companyUrl+id)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
 }

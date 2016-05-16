@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 
+#Test data
 testCompanies = [
   {
     :id => 1,
@@ -41,10 +42,13 @@ testCompanies = [
 
 ];
 
+#Routes
+##Fetch all companies
 get '/api/companies' do
   testCompanies.to_json()
 end
 
+##Fetch single company
 get '/api/company/:id' do
   #param starts as string, also easy sanitation
   companyId = params['id'].to_i;
@@ -52,6 +56,7 @@ get '/api/company/:id' do
   company.to_json()
 end
 
+##We want angular to take care of everything else
 get '/*' do
   File.read(File.join('public', 'index.html'))
 end
