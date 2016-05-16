@@ -1,8 +1,8 @@
-<h2>Create {{company.name}} </h2>
+<h2>Create </h2>
 
-<label>Name: </label><br />
-<input #newName placeholder="Name" /><br />
-<!--<label>CVR: </label><br />
+<!--<label>Name: </label><br />
+<input [(ngModel)]="company.name" placeholder="CVR"><br />
+<label>CVR: </label><br />
 <input [(ngModel)]="company.cvr" placeholder="CVR"><br />
 <label>Address:</label><br />
 <input [(ngModel)]="company.address" placeholder="Address"><br />
@@ -11,6 +11,6 @@
 <label>Country:</label><br />
 <input [(ngModel)]="company.country" placeholder="Country"><br />
 <label>Phone:</label><br />
-<input [(ngModel)]="company.phone" placeholder="Phone"><br />-->
-<button (click)="createCompany(newName.value); newName.value=''">Create</button>
+<input [(ngModel)]="company.phone" placeholder="Phone"><br />
+<button (click)="createCompany(newName.value); newName.value=''">Create</button>-->
 <button (click)="goBack()">Back</button>

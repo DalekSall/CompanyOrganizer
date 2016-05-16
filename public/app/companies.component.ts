@@ -1,5 +1,5 @@
 //import required system components 
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
 //import our own defined components
@@ -10,7 +10,7 @@ import { CompanyService } from './company.service';
 @Component({
     selector: 'my-companies',
     templateUrl: 'app/templates/companies.component.html',
-    styleUrls: ['css/companies.component.css']
+    styleUrls: ['css/companies.component.css'],
     directives: [CompanyDetailComponent]
 })
 
@@ -45,6 +45,11 @@ export class CompaniesComponent implements OnInit {
     //When a company is selected, we keep it
     onSelect(company: Company) {
         this.selectedCompany = company;
+    }
+
+    gotoCreateCompany() {
+        let link = ['CreateCompany'];
+        this.router.navigate(link);
     }
 
 }
