@@ -1,9 +1,14 @@
 <div *ngIf="company">
     <h2>{{company.name}} details</h2>
-    <div><label>id: </label>{{company.id}}</div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="company.name" placeholder="name">
-    </div>
+    <ul class="companies">
+        <li><span class="badge">id: </span>      {{company.id}}</li>
+        <li><span class="badge">Name: </span>    {{company.name}}</li>
+        <li><span class="badge">CVR: </span>     {{company.cvr}}</li>
+        <li><span class="badge">Address: </span> {{company.address}}</li>
+        <li><span class="badge">city: </span>    {{company.city}}</li>
+        <li><span class="badge">country: </span> {{company.country}}</li>
+        <li><span class="badge">phone: </span>   {{company.phone}}</li>
+    </ul>
+<!--<label>Name: </label><input [(ngModel)]="company.name" placeholder="name">-->
 </div>
 <button (click)="goBack()">Back</button>
