@@ -5,7 +5,7 @@ import { Company } from './company';
 import { CompanyService } from './company.service';
 
 @Component({
-    selector: 'my-dashboard',
+    selector: 'dashboard',
     templateUrl: 'app/templates/dashboard.component.html',
     styleUrls: ['css/dashboard.component.css']
 
@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     getCompanies() {
         this.companyService.getCompanies()
             .subscribe(
-                companies => this.companies = companies,
+                companies => this.companies = companies.slice(Math.max(companies.length -4, 1)),
                 error => this.errorMessage = <any>error
             );
     }
