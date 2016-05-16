@@ -56,6 +56,23 @@ get '/api/company/:id' do
   company.to_json()
 end
 
+post '/api/company/' do
+  request.body.rewind
+  data = JSON.parse request.body.read
+  latestCompany = testCompanies.last
+  latesId = latestCompany[:id] + 1
+  testCompanies.push({
+    :id => latesId,
+    :name => data['name'],
+    :cvr => data['cvr'],
+    :address => data['address'],
+    :city => data['city'],
+    :country => data['country'],
+    :phone => data['phone'],
+  });
+  "success".to_json()
+end
+
 ##We want angular to take care of everything else
 get '/*' do
   File.read(File.join('public', 'index.html'))

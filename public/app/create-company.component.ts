@@ -11,7 +11,7 @@ import { Company } from './company';
 
 export class CreateCompanyComponent {
 
-    company: Company;
+    response: string;
     errorMessage: string;
 
     constructor(
@@ -20,6 +20,20 @@ export class CreateCompanyComponent {
 
     goBack() {
         window.history.back();
+    }
+
+    createCompany(name, cvr, address, city, country, phone) {
+        if(!name || !cvr || !address || !city || !country) {
+            return;
+        }
+        if(!phone){
+            phone = 0;
+        }
+        this.companyService.addCompany(name, cvr, address, city, country, phone)
+            .subscribe(
+              response => this.response = response,
+              error => this.errorMessage = <any>error
+            );
     }
 
 }

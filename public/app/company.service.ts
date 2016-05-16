@@ -38,12 +38,12 @@ export class CompanyService {
 
 
     //This doesn't work
-    addCompany (name: string): Observable<Company> {
-        let body = JSON.stringify({ name });
+    addCompany (name: string, cvr: number, address: string, city: string, country: string, phone: number): Observable<Company> {
+        let body = JSON.stringify({ name, cvr, address, city, country, phone });
         let headers = new Headers({ 'Content-Type' : 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.companiesUrl, body, options)
+        return this.http.post(this.companyUrl, body, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
