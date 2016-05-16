@@ -5,18 +5,39 @@
         [class.selected]="company === selectedCompany"
         (click)="onSelect(company)">
         <div class="title">
-            <span class="badge">{{company.id}}</span> {{company.name}}
+            <span class="badge">{{company.id}}</span> {{company.name}}<span class="right-item">&#x25BC;&nbsp;&nbsp;&nbsp;</span>
         </div>
         <div *ngIf="company == selectedCompany">
             <!--This should somehow be pulled from the company Detail component-->
             <ul class="companyDetails">
-                <li><span>id: </span>      {{company.id}}</li>
-                <li><span>Name: </span>    {{company.name}}</li>
-                <li><span>CVR: </span>     {{company.cvr}}</li>
-                <li><span>Address: </span> {{company.address}}</li>
-                <li><span>city: </span>    {{company.city}}</li>
-                <li><span>country: </span> {{company.country}}</li>
-                <li><span>phone: </span>   {{company.phone}}</li>
+                <li>
+                    <span class="left-item">ID: </span>
+                    <span class="right-item">{{company.id}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">Name: </span>
+                    <span class="right-item">{{company.name}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">CVR: </span>
+                    <span class="right-item">{{company.cvr}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">Address: </span>
+                    <span class="right-item">{{company.address}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">city: </span>
+                    <span class="right-item">{{company.city}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">country: </span>
+                    <span class="right-item">{{company.country}}</span><br />
+                </li>
+                <li>
+                    <span class="left-item">phone: </span>
+                    <span class="right-item">{{company.phone}}</span><br />
+                </li>
             </ul>
         </div>
     </li>
