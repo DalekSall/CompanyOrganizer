@@ -1,13 +1,34 @@
 <div *ngIf="company">
     <h2>{{company.name}} details</h2>
-    <ul class="companies">
-        <li><span class="badge">id: </span>      {{company.id}}</li>
-        <li><span class="badge">Name: </span>    {{company.name}}</li>
-        <li><span class="badge">CVR: </span>     {{company.cvr}}</li>
-        <li><span class="badge">Address: </span> {{company.address}}</li>
-        <li><span class="badge">city: </span>    {{company.city}}</li>
-        <li><span class="badge">country: </span> {{company.country}}</li>
-        <li><span class="badge">phone: </span>   {{company.phone}}</li>
+    <ul class="companyDetails">
+        <li>
+            <span class="left-item">ID :</span>
+            <span class="right-item">{{company.id}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">Name: </span>
+            <span class="right-item">{{company.name}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">CVR: </span>
+            <span class="right-item">{{company.cvr}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">Address: </span>
+            <span class="right-item">{{company.address}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">city: </span>
+            <span class="right-item">{{company.city}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">country: </span>
+            <span class="right-item">{{company.country}}</span><br />
+        </li>
+        <li>
+            <span class="left-item">phone: </span>
+            <span class="right-item">{{company.phone}}</span><br />
+        </li>
     </ul>
 </div>
 <button (click)="goBack()">Back</button>

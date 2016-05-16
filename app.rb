@@ -7,7 +7,7 @@ testCompanies = [
     :id => 1,
     :cvr => 123456,
     :name => "SallCorp",
-    :adress => "Sallvej",
+    :address => "Sallvej",
     :city => "SallCity",
     :country => "Salland",
     :phone => 12345678
@@ -16,7 +16,7 @@ testCompanies = [
     :id => 2,
     :cvr => 654321,
     :name => "BlahCorp",
-    :adress => "Blahvej 3",
+    :address => "Blahvej 3",
     :city => "SallCity",
     :country => "Salland",
     :phone => 87654321
@@ -25,7 +25,7 @@ testCompanies = [
     :id => 3,
     :cvr => 742893,
     :name => "EvilCorp",
-    :adress => "Evilvej",
+    :address => "Evilvej",
     :city => "EvilCity",
     :country => "Eviland",
     :phone => 93183198,
@@ -34,7 +34,7 @@ testCompanies = [
     :id => 4,
     :cvr => 393839,
     :name => "BobaCorp",
-    :adress => "diskvej",
+    :address => "diskvej",
     :city => "BlasCity",
     :country => "Salland",
     :phone => 93948548,
@@ -66,13 +66,13 @@ post '/api/company/' do
   latesId = latestCompany[:id] + 1
 
   testCompanies.push({
-    :id => latesId,
-    :name => data['name'],
-    :cvr => data['cvr'],
-    :address => data['address'],
-    :city => data['city'],
-    :country => data['country'],
-    :phone => data['phone'],
+      :id => latesId,
+      :name => data['name'],
+      :cvr => data['cvr'],
+      :address => data['address'],
+      :city => data['city'],
+      :country => data['country'],
+      :phone => data['phone'],
   });
 
   #Just return success

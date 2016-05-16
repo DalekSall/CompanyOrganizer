@@ -31,3 +31,22 @@ button:disabled {
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.companyDetails {
+    width: 250px;
+    list-style-type: none;
+}
+
+.companyDetails li {
+    border-bottom: 1px solid #BBD8DC;
+}
+
+.companyDetails .left-item {
+    position:relative;
+    float:left;
+}
+
+.right-item {
+    position:relative;
+    float:right;
+}
