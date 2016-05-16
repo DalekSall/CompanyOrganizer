@@ -8,20 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//import required system components 
 var core_1 = require('@angular/core');
+//import our own defined components
 var company_service_1 = require('./company.service');
 var CreateCompanyComponent = (function () {
+    //Avoid complex stuff in the constructor.
+    //Just inject the components we need. 
     function CreateCompanyComponent(companyService) {
         this.companyService = companyService;
     }
     CreateCompanyComponent.prototype.goBack = function () {
         window.history.back();
     };
+    //call for creating new component
+    //with our company service
     CreateCompanyComponent.prototype.createCompany = function (name, cvr, address, city, country, phone) {
         var _this = this;
         if (!name || !cvr || !address || !city || !country) {
             return;
         }
+        //phone is optional, for now we just reset it to 0
         if (!phone) {
             phone = 0;
         }
