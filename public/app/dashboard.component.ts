@@ -14,6 +14,7 @@ import { CompanyService } from './company.service';
 export class DashboardComponent implements OnInit {
 
     companies: Company[] = [];
+    errorMessage: string;
 
     constructor(
         private router: Router,
@@ -21,9 +22,17 @@ export class DashboardComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.companyService.getCompanies()
-            .then(companies => this.companies = companies.slice(1,5));
+        this.getCompanies()
     }
+
+    getCompanies() {
+        this.companyService.getCompanies()
+            .subscribe(
+                companies => this.companies = companies,
+                error => this.errorMessage = <any>error
+            );
+    }
+
 
     gotoDetail(company: Company) {
         let link = ['CompanyDetail', {id: company.id}];

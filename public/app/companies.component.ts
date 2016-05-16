@@ -14,7 +14,9 @@ import { OnInit } from '@angular/core';
 })
 
 export class CompaniesComponent implements OnInit {
+
     title = "Companies";
+    errorMessage: string;
     companies: Company[];
     selectedCompany: Company;
 
@@ -28,7 +30,20 @@ export class CompaniesComponent implements OnInit {
     }
 
     getCompanies() {
-        this.companyService.getCompanies().then(companies => this.companies = companies);
+        this.companyService.getCompanies()
+            .subscribe(
+                companies => this.companies = companies,
+                error => this.errorMessage = <any>error
+            );
+    }
+
+    addCompany( name: string) {
+        if(!name) {return;}
+        this.companyService.addCompany(name)
+            .subscribe(
+                company => this.companies.push(company),
+                error => this.errorMessage = <any>error
+            );
     }
 
     onSelect(company: Company) {this.selectedCompany = company; }

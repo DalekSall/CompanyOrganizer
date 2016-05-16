@@ -13,6 +13,7 @@ import { Company } from './company';
 export class CompanyDetailComponent implements OnInit{
 
     company: Company;
+    errorMessage: string;
 
     constructor(
         private companyService: CompanyService,
@@ -22,7 +23,10 @@ export class CompanyDetailComponent implements OnInit{
     ngOnInit() {
         let id = +this.routeParams.get('id');
         this.companyService.getCompany(id)
-            .then(company => this.company = company);
+            .subscribe(
+                company => this.company = company,
+                error => this.errorMessage = <any>error
+            );
     }
 
     goBack() {
