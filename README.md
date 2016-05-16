@@ -2,6 +2,8 @@
 A small application for handling and presenting companies.
 Main purpose is to get practice in Anglar2.
 
+See compiled version: https://companyorganizer.herokuapp.com/
+
 ##technolgies
 * Angular2
 * Ruby v.2.3.0p0
