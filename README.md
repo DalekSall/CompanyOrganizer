@@ -34,3 +34,5 @@ See compiled version: https://companyorganizer.herokuapp.com/
 * Integrate creating with cvrapi.dk
 * Find clever ways to avoid repetition in components
 * Optimize speed (it takes ages to start)
+* Optimize flow when creating new company
+* Validate and sanitize input
