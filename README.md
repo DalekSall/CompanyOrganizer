@@ -4,7 +4,7 @@ Main purpose is to get practice in Anglar2.
 
 See compiled version: https://companyorganizer.herokuapp.com/
 
-##technologies
+##Technologies
 * Angular2
 * Ruby v.2.3.0p0
 * Typescript v1.8.10
